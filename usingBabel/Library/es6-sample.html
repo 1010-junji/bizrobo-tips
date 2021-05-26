@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6サンプル</title>
+    <style type="text/css">
+        body {
+            margin: 2em;
+        }
+        .container {
+            border:solid 2px #8ac27e;
+            background-color: #f87563;
+            min-height: 1em;
+            border-radius: 0.5em;
+            margin: 1em;
+            padding: 0.5em;
+        }
+        .code {
+            background-color: rgb(247, 245, 245);
+            font-size: 0.8em;
+            border-radius: 0.5em;
+            margin: 0.5em 1em;
+        }
+        .code > span {
+            margin: 1em 0em -0.8em -0.5em;
+            background-color: rgb(204, 204, 203);
+            padding: 0.3em 2em;
+        }
+    </style>
+</head>
+<body>
+    <h2>ES6 サンプル</h2>
+    <ul>
+        <li>引用元：<a href="https://babeljs.io/docs/en/babel-standalone" target="_blank">@babel/standalone</a></li>
+    </ul>
+    
+    <div class="code">
+        <span>ES6判定用に実行されるコード</span>
+        <pre>
+    let v = "ES6";
+    const getMessage = () => `${v} が処理されています！`;
+    document.getElementById("output").innerHTML = getMessage();
+        </pre>
+    </div>
+    <div class="container" id="es6">
+        <div id="output"></div>
+    </div>
+
+    <!-- Load Babel -->
+    <!-- Your custom script here -->
+    <script>
+      let v = "ES6";
+      const getMessage = () => `${v} が処理されています！`;
+      document.getElementById("output").innerHTML = getMessage();
+      
+      document.getElementById("es6").style.backgroundColor ="#e0f7d3";
+    </script>
+
+    <hr/>
+
+    <h2>Promise サンプル</h2>
+    <ul>
+        <li>引用元：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN Web Docs: Promise</a></li>
+    </ul>
+
+    遅延実行(ms): <input type=text id="delay" value=10>
+    <button id="make-promise">promise生成!</button>
+    <div class="container" id="promise">
+        <div id="log"></div>
+    </div>
+
+    <script type="text/javascript">
+        "use strict";
+        let promiseCount = 0;
+
+        function testPromise() {
+        let thisPromiseCount = ++promiseCount;
+        let log = document.getElementById('log');
+        // begin
+        log.insertAdjacentHTML('beforeend', thisPromiseCount + ') 開始しました<br>');
+        // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)
+        let p1 = new Promise((resolve, reject) => {
+            // The executor function is called with the ability to resolve or reject the promise
+            log.insertAdjacentHTML('beforeend', thisPromiseCount + ') Promise コンストラクタ生成<br>');
+            // This is only an example to create asynchronism
+            window.setTimeout(function() {
+                // We fulfill the promise !
+                resolve(thisPromiseCount);
+            }, document.getElementById('delay').value);
+        });
+
+        // We define what to do when the promise is resolved with the then() call,
+        // and what to do when the promise is rejected with the catch() call
+        p1.then(function(val) {
+            // Log the fulfillment value
+            log.insertAdjacentHTML('beforeend', val + ') Promise 完了！<br>');
+            document.getElementById("promise").style.backgroundColor ="#e0f7d3";
+        }).catch((reason) => {
+            // Log the rejection reason
+            console.log(`Handle rejected promise (${reason}) here.`);
+        });
+        // end
+        log.insertAdjacentHTML('beforeend', thisPromiseCount + ') Promise 生成<br>');
+        }
+
+        if ("Promise" in window) {
+            let btn = document.getElementById("make-promise");
+            btn.addEventListener("click",testPromise);
+        } else {
+            log = document.getElementById('log');
+            log.textContent = "Live example not available as your browser doesn't support the <code>Promise<code> interface.";
+        }
+    </script>
+
+</body>
+</html>
