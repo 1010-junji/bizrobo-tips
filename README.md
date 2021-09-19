@@ -33,6 +33,8 @@ sample robots, tips and so forth for helping your daily mundane tasks well.
 | スニペット| アッパーキャメルケース | Snippet.snippet |
 | タイプ| アッパーキャメルケース | TypeFile.type |
 
+- ただし、ロボット名については事前に業務IDが振られているものについては業務IDをファイル名とすることが管理上も適切。
+
 ### 変数タイプ
 |  ケース  |  規則  |例|
 | ---- | ---- |----|
