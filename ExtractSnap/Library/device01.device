@@ -1,0 +1,6 @@
+#Hub Mapping
+#Sun Jun 12 23:09:01 JST 2022
+port=49998
+token=lda
+type=direct
+host=localhost
