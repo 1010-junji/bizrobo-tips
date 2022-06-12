@@ -4,7 +4,7 @@ sample robots, tips and so forth for helping your daily mundane tasks well.
 ## Contents
 - [usingBabel](./usingBabel/Library)　… DS のデフォルトブラウザで ES6 を処理する手順
 - [ExtractSnap](./ExtractSnap/Library)　… DA で画面のスナップショットを取得するサンプル
-- 
+
 ## 命名規則
 
 ### フォルダ構成
